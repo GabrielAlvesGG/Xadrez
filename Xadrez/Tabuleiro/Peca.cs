@@ -13,7 +13,11 @@
             Cor = cor;
             Tab = tab;
             QuantMovimento = 0;
-        }               
+        }          
+        public void IncrementarQuantidadeMovimento()
+        {
+            QuantMovimento++;
+        }
     }
 }
 

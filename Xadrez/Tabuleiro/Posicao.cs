@@ -19,7 +19,6 @@ namespace Xadrez.tabuleiro
         {
             return Linha + " , "
                 +  Coluna;
-
         }
     }
 }

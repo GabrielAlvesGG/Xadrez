@@ -46,7 +46,20 @@ namespace Xadrez.tabuleiro
                 throw new DomainException("Posição invalida!");
             }
         }
-
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if(peca(pos)== null)
+            {
+                return null;
+            }
+            else
+            {
+                Peca auxiliar = peca(pos);
+                auxiliar.Posicao = null;
+                pecas[pos.Linha, pos.Coluna] = null;
+                return auxiliar; 
+            }
+        }
         public void ColocarPeca(Peca p, Posicao pos)
         {
             if (ExistePeca(pos))
