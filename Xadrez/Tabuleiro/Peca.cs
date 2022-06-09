@@ -1,6 +1,6 @@
 ﻿namespace Xadrez.tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -18,6 +18,7 @@
         {
             QuantMovimento++;
         }
+        public abstract bool[,] MovimentosPossiveis();       
     }
 }
 

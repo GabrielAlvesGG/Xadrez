@@ -30,6 +30,7 @@ namespace Xadrez.JogoXadrez
             Peca capiturada = tab.RetirarPeca(destino);
             tab.ColocarPeca(p, destino);
         }
+        
         private void ColocarPecas()
         {
             tab.ColocarPeca(new Torre(tab, Cor.Branca), new PosicaoXadrez('c',1 ).ToPosicao());
