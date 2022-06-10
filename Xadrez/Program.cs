@@ -36,7 +36,7 @@ namespace Xadrez
                     }
                     catch(DomainException e)
                     {
-                        Console.WriteLine("Erro !" + e.Message);
+                        Console.WriteLine("Erro ! " + e.Message);
                         Console.ReadLine();
                     }
                 }
