@@ -19,7 +19,7 @@ namespace Xadrez.JogoXadrez
         public bool PodeMover(Posicao pos)
         {
             Peca p = Tab.peca(pos);
-            return p != null || Tab.peca(pos).Cor != Cor;
+            return p == null || Tab.peca(pos).Cor != Cor;
         }
         public override bool [,] MovimentosPossiveis()
         {

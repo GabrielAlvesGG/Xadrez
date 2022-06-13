@@ -17,7 +17,7 @@ namespace Xadrez.JogoXadrez
         public bool ExisteInimigo(Posicao pos)
         {
             Peca p = Tab.peca(pos);
-            return p != null || Tab.peca(pos).Cor != Cor;
+            return p == null || Tab.peca(pos).Cor != Cor;
         }
         private bool Livre(Posicao pos)
         {
