@@ -69,7 +69,7 @@ namespace Xadrez.JogoXadrez
             {
                 Xeque = false;
             }
-            if (EstaEmXeque(Adversaria(JogadorAtual)))
+            if (TesteXequeMate (Adversaria(JogadorAtual)))
             {
                 Terminada = true;
             }
