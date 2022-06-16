@@ -17,7 +17,7 @@ namespace Xadrez.JogoXadrez
         public bool ExisteInimigo(Posicao pos)
         {
             Peca p = Tab.peca(pos);
-            return p == null || Tab.peca(pos).Cor != Cor;
+            return p != null && Tab.peca(pos).Cor != Cor;
         }
         private bool Livre(Posicao pos)
         {
@@ -25,7 +25,7 @@ namespace Xadrez.JogoXadrez
         }
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[Posicao.Linha, Posicao.Coluna];
+            bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
 
             Posicao pos = new Posicao(0, 0);
 
