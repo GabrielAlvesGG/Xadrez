@@ -48,7 +48,7 @@ namespace Xadrez.JogoXadrez
             }
 
             // #Roque Grande
-            if (p is Rei && destino.Coluna == origem.Coluna - 3)
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
             {
                 Peca T = tab.RetirarPeca(new Posicao(origem.Linha, origem.Coluna - 4));
                 T.IncrementarQuantidadeMovimento();
@@ -67,13 +67,21 @@ namespace Xadrez.JogoXadrez
                 tab.ColocarPeca(capiturada, destino);
                 Capiturada.Remove(capiturada);
             }
-            if (p is Rei )
+            // #Roque Pequeno
+            if (p is Rei && origem.Coluna == destino.Coluna - 2 )
             {
                 Peca T = tab.RetirarPeca(new Posicao(destino.Linha, destino.Coluna - 1));
                 T.IncrementarQuantidadeMovimento();
-                tab.ColocarPeca(T, new Posicao(origem.Linha, origem.Coluna + 3));
+                tab.ColocarPeca(T, new Posicao(origem.Linha, origem.Coluna + 2));
             }
 
+            // Roque Grande
+            if(p is Rei && destino.Coluna == origem.Coluna  + 2 )
+            {
+                Peca T = tab.RetirarPeca(new Posicao(origem.Linha, origem.Coluna - 1));
+                T.DecrementarQuantidadeMovimento();
+                tab.ColocarPeca(T, new Posicao(origem.Linha, origem.Coluna - 4));
+            }
             tab.ColocarPeca(p , origem);
         }
 
@@ -242,9 +250,9 @@ namespace Xadrez.JogoXadrez
             ColocarNovaPeca('g', 1, new Cavalo(tab, Cor.Branca));
             ColocarNovaPeca('f', 1, new Bispo(tab, Cor.Branca));
             ColocarNovaPeca('e', 1, new Rei(tab, Cor.Branca, this));
-            /*ColocarNovaPeca('d', 1, new Rainha(tab, Cor.Branca));
+            ColocarNovaPeca('d', 1, new Rainha(tab, Cor.Branca));
             ColocarNovaPeca('c', 1, new Bispo(tab, Cor.Branca));
-            ColocarNovaPeca('b', 1, new Cavalo(tab, Cor.Branca));*/
+            ColocarNovaPeca('b', 1, new Cavalo(tab, Cor.Branca));
             ColocarNovaPeca('a', 1, new Torre(tab, Cor.Branca));
             ColocarNovaPeca('a', 2, new Peao(tab, Cor.Branca));
             ColocarNovaPeca('b', 2, new Peao(tab, Cor.Branca));
