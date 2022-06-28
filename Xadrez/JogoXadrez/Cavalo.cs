@@ -34,12 +34,20 @@ namespace Xadrez.JogoXadrez
                 {
                     break;
                 }
+                else if (Tab.peca(pos) == null)
+                {
+                    break;
+                }
             }
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 2) ;
             while(Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if(Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                else if (Tab.peca(pos) == null)
                 {
                     break;
                 }
@@ -52,12 +60,20 @@ namespace Xadrez.JogoXadrez
                 {
                     break;
                 }
+                else if(Tab.peca(pos) == null)
+                {
+                    break;
+                }
             }
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 2);
             while(Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                else if (Tab.peca(pos) == null)
                 {
                     break;
                 }
@@ -70,12 +86,20 @@ namespace Xadrez.JogoXadrez
                 {
                     break;
                 }
+                else if (Tab.peca(pos) == null)
+                {
+                    break;
+                }
             }
             pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1);
             while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                else if (Tab.peca(pos) == null)
                 {
                     break;
                 }
@@ -88,12 +112,20 @@ namespace Xadrez.JogoXadrez
                 {
                     break;
                 }
+                else if(Tab.peca(pos) == null)
+                {
+                    break;
+                }
             }
             pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna - 1);
             while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                else if (Tab.peca(pos) == null)
                 {
                     break;
                 }
