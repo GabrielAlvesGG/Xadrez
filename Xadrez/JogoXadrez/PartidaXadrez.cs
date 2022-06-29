@@ -286,7 +286,7 @@ namespace Xadrez.JogoXadrez
             ColocarNovaPeca('d', 2, new Peao(tab, Cor.Branca, this));
             ColocarNovaPeca('e', 2, new Peao(tab, Cor.Branca, this));
             ColocarNovaPeca('f', 2, new Peao(tab, Cor.Branca, this));
-            ColocarNovaPeca('g', 4, new Peao(tab, Cor.Branca, this));
+            ColocarNovaPeca('g', 2, new Peao(tab, Cor.Branca, this));
             ColocarNovaPeca('h', 2, new Peao(tab, Cor.Branca, this));
 
 
@@ -299,7 +299,7 @@ namespace Xadrez.JogoXadrez
             ColocarNovaPeca('g', 8, new Cavalo(tab, Cor.Preta));
             ColocarNovaPeca('h', 8, new Torre(tab, Cor.Preta));
             ColocarNovaPeca('a', 7, new Peao(tab, Cor.Preta, this));
-            ColocarNovaPeca('b', 6, new Peao(tab, Cor.Preta, this));
+            ColocarNovaPeca('b', 7, new Peao(tab, Cor.Preta, this));
             ColocarNovaPeca('c', 7, new Peao(tab, Cor.Preta, this));
             ColocarNovaPeca('d', 7, new Peao(tab, Cor.Preta, this));
             ColocarNovaPeca('e', 7, new Peao(tab, Cor.Preta, this));
