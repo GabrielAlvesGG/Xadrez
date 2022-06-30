@@ -2,6 +2,7 @@
 using Xadrez.tabuleiro;
 using System.Collections.Generic;
 using Xadrez.JogoXadrez;
+using Xadrez.tabuleiro.TabuleiroException;
 
 namespace Xadrez
 {
@@ -94,7 +95,18 @@ namespace Xadrez
             string s = Console.ReadLine();
             char coluna = s[0];
             int linha = int.Parse(s[1] + " ");
+            
             return new PosicaoXadrez(coluna, linha);
+        }
+        public static int Promocao()
+        {
+            Console.WriteLine("Digite o numero do tipo de promoção desejada: ");
+            Console.WriteLine(" 1 - Dama");
+            Console.WriteLine(" 2 - Cavalo");
+            Console.WriteLine(" 3 - Torre");
+            Console.WriteLine(" 4 - Bispo");
+            int condicao = int.Parse(Console.ReadLine());
+            return condicao;
         }
         public static void ImprimirPeca(Peca peca)
         {

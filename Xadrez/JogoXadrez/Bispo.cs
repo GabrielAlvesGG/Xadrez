@@ -36,7 +36,7 @@ namespace Xadrez.JogoXadrez
                     break;
                 }
                 pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
-                if (Tab.PosicaoValida(pos))
+                if (!Tab.PosicaoValida(pos))
                 {
                     break;
                 }

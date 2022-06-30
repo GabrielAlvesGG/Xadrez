@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xadrez.tabuleiro;
 using Xadrez.tabuleiro.TabuleiroException;
+using Xadrez;
 
 
 
@@ -98,7 +99,22 @@ namespace Xadrez.JogoXadrez
                 tab.ColocarPeca(T, new Posicao(origem.Linha, origem.Coluna - 4));
             }
 
-
+            // #JogadaEspecial En Passant
+            if (p is Peao && VulneravelEnPassant == capiturada)
+            {
+                if (p.Cor == Cor.Branca)
+                {
+                    Posicao posicaoP = new Posicao(destino.Linha - 1, destino.Coluna);
+                    Peca peao = tab.RetirarPeca(destino);
+                    tab.ColocarPeca(peao, posicaoP);
+                }
+                else
+                {
+                    Posicao posicaoP = new Posicao(destino.Linha + 1, destino.Coluna);
+                    Peca peao = tab.RetirarPeca(destino);
+                    tab.ColocarPeca(peao, posicaoP);
+                }
+            }
             tab.ColocarPeca(p , origem);
         }
 
@@ -118,6 +134,7 @@ namespace Xadrez.JogoXadrez
             {
                 Xeque = false;
             }
+            
             if (TesteXequeMate(Adversaria(JogadorAtual)))
             {
                 Terminada = true;
@@ -127,7 +144,47 @@ namespace Xadrez.JogoXadrez
                 Turno++;
                 MudaJogador();
             }
+
             Peca p = tab.peca(destino);
+            // #Jogada especial 
+            if (p is Peao)
+            {
+                if (destino.Linha == 0 || destino.Linha == 7)
+                {
+
+                    int condicao = Tela.Promocao();
+                    switch (condicao)
+                    {
+                        case 1:
+                            Peca removida = tab.RetirarPeca(destino);
+                            Pecas.Remove(removida);
+                            tab.ColocarPeca(new Rainha(tab, p.Cor), destino);
+                            Pecas.Add(new Rainha(tab, p.Cor));
+                            break;
+                        case 2:
+                            Peca removida2 = tab.RetirarPeca(destino);
+                            Pecas.Remove(removida2);
+                            tab.ColocarPeca(new Cavalo(tab, p.Cor), destino);
+                            Pecas.Add(new Cavalo(tab, p.Cor));
+                            break;
+                        case 3:
+                            Peca removida3 = tab.RetirarPeca(destino);
+                            Pecas.Remove(removida3);
+                            tab.ColocarPeca(new Torre(tab, p.Cor), destino);
+                            Pecas.Add(new Torre(tab, p.Cor));
+                            break;
+                        case 4:
+                            Peca removida4 = tab.RetirarPeca(destino);
+                            Pecas.Remove(removida4);
+                            tab.ColocarPeca(new Bispo(tab, p.Cor), destino);
+                            Pecas.Add(new Bispo(tab, p.Cor));
+                            break;
+                        default:
+                            Console.WriteLine("Opção inválida");
+                            break;
+                    }
+                }
+            }
             // #JogadaEspecial en passant
             if (p is Peao)
             {
@@ -135,7 +192,7 @@ namespace Xadrez.JogoXadrez
                 {
                     VulneravelEnPassant = p;
                 }
-            }
+            }            
         }
         private void MudaJogador()
         {
